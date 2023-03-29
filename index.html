@@ -30,11 +30,9 @@
         .then(response => response.json())
         .then(data => {
           price = data.last;
+          lastPrice = price;
+          document.getElementById('price').innerHTML = lastPrice;
         });
-      if (price !== lastPrice) {
-        lastPrice = price;
-        document.getElementById('price').innerHTML = price;
-      }
     </script>
   </body>
 </html>
