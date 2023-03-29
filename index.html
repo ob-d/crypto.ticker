@@ -27,13 +27,11 @@
       fetch(url)
         .then(response => response.json())
         .then(data => {
-          let price = 0;
+          const price = 0;
           let lastPrice = 0;
           price = data.last;
-          if (price !== lastPrice) {
-            lastPrice = price;
-            document.getElementById('price').innerHTML = lastPrice;
-          }
+          lastPrice = price;
+          document.getElementById('price').innerHTML = lastPrice;
         });
     </script>
   </body>
