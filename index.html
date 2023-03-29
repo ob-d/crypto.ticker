@@ -30,8 +30,10 @@
           const price = 0;
           let lastPrice = 0;
           price = data.last;
-          lastPrice = price;
-          document.getElementById('price').innerHTML = lastPrice;
+          if (price !== lastPrice) {
+            lastPrice = price;
+            document.getElementById('price').innerHTML = lastPrice;
+          }
         });
     </script>
   </body>
