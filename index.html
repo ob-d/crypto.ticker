@@ -24,12 +24,17 @@
       it displays the curret price.</strong></p>
     <script>
       const url = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD';
+      let price = 0;
+      let lastPrice = 0;
       fetch(url)
         .then(response => response.json())
         .then(data => {
-          const price = data.last;
-          document.getElementById('price').innerHTML = price;
+          price = data.last;
         });
+      if (price !== lastPrice) {
+        lastPrice = price;
+        document.getElementById('price').innerHTML = price;
+      }
     </script>
   </body>
 </html>
