@@ -1,0 +1,33 @@
+<!-- Simple crypto currency price ticker using the BitcoinAverage API. 
+  This is a simple HTML page that uses the fetch API to get the current 
+  price of Bitcoin from the BitcoinAverage API. The price is 
+  then displayed on the page. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Price Ticker</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bitcoin Price Ticker</h1>
+    <p>The autor of this BTC ticker is GPT Bing.</p>
+    <p>The current Bitcoin price is:</p>
+    <h1 id="price"></h1>
+    <p><strong>If you cant see the price please refresh every sec until 
+      it displays the currnet price.</strong></p>
+    <script>
+      const url = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD';
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const price = data.last;
+          document.getElementById('price').innerHTML = price;
+        });
+    </script>
+  </body>
+</html>
